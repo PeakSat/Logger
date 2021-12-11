@@ -221,4 +221,4 @@ template <typename T>
 	return noLogEntry;
 }
 
-#endif //ECSS_SERVICES_LOGGER_HPP
+#endif // LOGGER_HPP
