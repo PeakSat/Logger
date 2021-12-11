@@ -17,7 +17,7 @@
 #elif defined LOGLEVEL_WARNING
 #define LOGLEVEL Logger::warning // Ignore-MISRA
 #elif defined LOGLEVEL_ERROR
-#define LOGLEVEL Logger::errECSS_SERVICES_ // Ignore-MISRA
+#define LOGLEVEL Logger::error // Ignore-MISRA
 #elif defined LOGLEVEL_EMERGENCY
 #define LOGLEVEL Logger::emergency // Ignore-MISRA
 #elif !defined LOGLEVEL
@@ -221,4 +221,4 @@ template <typename T>
 	return noLogEntry;
 }
 
-#endif //ECSS_SERVICES_LOGGER_HPP
+#endif // LOGGER_HPP
