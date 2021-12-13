@@ -1,5 +1,4 @@
-#ifndef LOGGER_DEFINITIONS_H
-#define LOGGER_DEFINITIONS_H
+#pragma once
 
 /**
  * @defgroup LoggerDefinitions ECSS Defined Constants
@@ -21,5 +20,3 @@
  * @brief The maximum size of a log message
  */
 #define LOGGER_MAX_MESSAGE_SIZE 512
-
-#endif // LOGGER_DEFINITIONS_H
