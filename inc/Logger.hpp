@@ -36,25 +36,14 @@
  * A logging class for ECSS Services that supports ETL's String and is lightweight enough to be used in embedded
  * development.
  *
- * @note Always use the \ref LOG function and its associated utility macros to log. Do not directly use the Logger
- * class.
+ * @note Always use the \ref LOG function and its associated utility macros to log.
  */
 class Logger {
 public:
 	/**
-	 * No need to instantiate a Logger object for now.
-	 */
-	Logger() = delete;
-
-	/**
 	 * The underlying type to be used for values of Logger::LogLevel.
 	 */
 	typedef uint8_t LogLevelType;
-
-	/**
-	 * ETL's string format specification, to be used for all logged messages
-	 */
-	static etl::format_spec format;
 
 	/**
 	 * Log levels supported by the logger. Each level represents a different severity of the logged Message,
@@ -72,6 +61,21 @@ public:
 		emergency = 254, ///< Unexpected failure that renders the entire system unusable
 		disabled = 255, ///< Use this log level to disable logging entirely. No message should be logged as disabled.
 	};
+protected:
+	/**
+	 * Store a new log message
+	 */
+	static void log(LogLevel level, etl::istring & message);
+public:
+	/**
+	 * No need to instantiate a Logger object for now.
+	 */
+	Logger() = delete;
+
+	/**
+	 * ETL's string format specification, to be used for all logged messages
+	 */
+	static etl::format_spec format;
 
 	/**
 	 * An empty enum representing a dummy log entry that will not be logged due to an insufficient level.
@@ -132,11 +136,6 @@ public:
 	static constexpr bool isLogged(LogLevelType level) {
 		return static_cast<LogLevelType>(LOGLEVEL) <= level;
 	}
-
-	/**
-	 * Store a new log message
-	 */
-	static void log(LogLevel level, etl::istring & message);
 };
 
 /**
