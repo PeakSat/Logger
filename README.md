@@ -6,3 +6,5 @@ If you use this as a submodule, maybe you won't have to grab the [ETL](https://g
 If not, make sure to `git submodule update --recursive` first.
 Your `CMakeLists.txt` would have then have a line like `include_directories("${PROJECT_SOURCE_DIR}/inc" "${PROJECT_SOURCE_DIR}/lib/etl/include" "${PROJECT_SOURCE_DIR}/lib/ECSS-logger/inc")`
 This will receive a more elegant solution in the future, perhaps in the form of a package manager.
+
+Don't forget to include the line `add_compile_definitions<LOG_LEVEL>` in your `CmakeLists.txt`, for example `add_compile_definitions(LOGLEVEL_TRACE)`.
