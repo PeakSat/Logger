@@ -1,5 +1,4 @@
-#ifndef LOGGER_ETL_STRING_HPP
-#define LOGGER_ETL_STRING_HPP
+#pragma once
 
 #include <cstddef>
 #include <etl/cstring.h>
@@ -71,5 +70,3 @@ public:
 		return *this;
 	}
 };
-
-#endif // ECSS_SERVICES_ETL_STRING_HPP
