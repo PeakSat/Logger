@@ -89,7 +89,7 @@ public:
 	struct LogEntry {
 		String<LOGGER_MAX_MESSAGE_SIZE> message = ""; ///< The current log message itself, starting from a blank slate
 		LogLevel level; ///< The log level of this message
-		LogSubsystem::Subsystem subsystem = LogSubsystem::currentSubsystem;
+		LogSubsystem::Subsystem subsystem = LogSubsystem::currentSubsystem; ///< The subsystem the log message originates from.
 
 		explicit LogEntry(LogLevel level); ///< Create a new LogEntry
 
@@ -142,7 +142,7 @@ public:
 	/**
 	 * Store a new log message
 	 */
-	static void log(LogLevel level, etl::istring & message, LogSubsystem::Subsystem subsystem);
+	static void log(LogLevel level, etl::istring& message, LogSubsystem::Subsystem subsystem);
 };
 
 /**

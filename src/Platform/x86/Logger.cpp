@@ -1,13 +1,13 @@
 #include <Logger.hpp>
+#include <Logger_Definitions.hpp>
 #include <etl/String.hpp>
 #include <iostream>
-#include <Logger_Definitions.hpp>
 
 #include <chrono>
 #include <iomanip>
 
 // The implementation of this function appends ANSI codes that should add colours to a compatible terminal
-void Logger::log(Logger::LogLevel level, etl::istring & message, LogSubsystem::Subsystem subsystem = LogSubsystem::currentSubsystem) {
+void Logger::log(Logger::LogLevel level, etl::istring& message, LogSubsystem::Subsystem subsystem = LogSubsystem::currentSubsystem) {
 	// Get the current time & date
 	std::time_t t = std::time(nullptr);
 	std::tm tm = *std::localtime(&t);
