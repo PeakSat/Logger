@@ -25,6 +25,19 @@
 #define LOGGER_MAX_MESSAGE_SIZE 512
 
 namespace LogSubsystem {
+	/**
+	 * The maximum number of letters in a string representation of a subsystem's name.
+	 */
+	inline constexpr uint8_t maximumLettersInSubsystemName = 5;
+
+	/**
+	 * The amount of options in the below enum class.
+	 */
+	inline constexpr uint8_t numberOfSubsystemOptions = 5;
+
+	/**
+	 * The subsystems that log messages originate from.
+	 */
 	enum class Subsystem : uint8_t {
 		None = 0,
 		OBC,
@@ -33,12 +46,18 @@ namespace LogSubsystem {
 		ADCS
 	};
 
-	static etl::map<Subsystem, String<5>, 5> subsystemToString = {
+	/**
+	 * Map to assign enum's values to their string representations, for logging.
+	 */
+	static etl::map<Subsystem, String<maximumLettersInSubsystemName>, numberOfSubsystemOptions> subsystemToString = {
 	    {Subsystem::None, "None"},
 	    {Subsystem::OBC, "OBC"},
 	    {Subsystem::COMMS, "COMMS"},
 	    {Subsystem::SU, "SU"},
 	    {Subsystem::ADCS, "ADCS"}};
 
+	/**
+	 * The subsystem to be used, if no other subsystem is defined using the stream operator.
+	 */
 	inline Subsystem currentSubsystem;
-}
+} // namespace LogSubsystem

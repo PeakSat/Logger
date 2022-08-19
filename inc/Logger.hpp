@@ -121,6 +121,11 @@ public:
 			return *this;
 		}
 
+		/**
+		 * Stream operator to assign a subsystem for the log record.
+		 * @param subsystem The subsystem the message originates from.
+		 * @return The current Logger::LogEntry where the subsystem has been assigned
+		 */
 		Logger::LogEntry& operator<<(const LogSubsystem::Subsystem subsystem) {
 			this->subsystem = subsystem;
 
