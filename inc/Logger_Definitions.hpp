@@ -1,5 +1,8 @@
 #pragma once
 
+#include "etl/map.h"
+#include "etl/String.hpp"
+
 /**
  * @defgroup LoggerDefinitions ECSS Defined Constants
  *
@@ -20,3 +23,24 @@
  * @brief The maximum size of a log message
  */
 #define LOGGER_MAX_MESSAGE_SIZE 512
+
+namespace LogSubsystem{
+	enum class Subsystem : uint8_t {
+		None = 0,
+		OBC,
+		COMMS,
+		SU,
+		ADCS
+	};
+
+	static etl::map<Subsystem, String<5>, 5> subsystemToString = {
+	    {Subsystem::None, "None"},
+		{Subsystem::OBC, "OBC"},
+		{Subsystem::COMMS, "COMMS"},
+		{Subsystem::SU, "SU"},
+		{Subsystem::ADCS, "ADCS"}
+	};
+
+	inline Subsystem currentSubsystem;
+}
+
