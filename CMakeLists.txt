@@ -1,15 +1,18 @@
 cmake_minimum_required(VERSION 3.14)
 project(Logger)
 
+set(CMAKE_CXX_STANDARD 17)
+
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
 add_library(log_common STATIC)
 target_include_directories(log_common PUBLIC "inc/")
 target_sources(log_common PRIVATE "src/Logger.cpp")
-target_link_libraries(log_common PRIVATE "etl")
 target_compile_features(log_common PRIVATE "cxx_std_17")
 
 add_library(log_x86 STATIC)
 target_sources(log_x86 PRIVATE "src/Platform/x86/Logger.cpp")
-target_link_libraries(log_x86 PRIVATE "etl")
 target_link_libraries(log_x86 PRIVATE "log_common")
 
 add_library(Logger::x86 ALIAS "log_x86")
