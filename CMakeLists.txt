@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 project(Logger)
 
-add_subdirectory("lib/etl")
-
 add_library(log_common STATIC)
 target_include_directories(log_common PUBLIC "inc/")
 target_sources(log_common PRIVATE "src/Logger.cpp")
