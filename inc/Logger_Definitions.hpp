@@ -28,12 +28,12 @@ namespace LogSubsystem {
 	/**
 	 * The maximum number of letters in a string representation of a subsystem's name.
 	 */
-	inline constexpr uint8_t maximumLettersInSubsystemName = 5;
+	inline constexpr uint8_t MaximumLettersInSubsystemName = 5;
 
 	/**
 	 * The amount of options in the below enum class.
 	 */
-	inline constexpr uint8_t numberOfSubsystemOptions = 5;
+	inline constexpr uint8_t NumberOfSubsystemOptions = 5;
 
 	/**
 	 * The subsystems that log messages originate from.
@@ -49,7 +49,7 @@ namespace LogSubsystem {
 	/**
 	 * Map to assign enum's values to their string representations, for logging.
 	 */
-	static etl::map<Subsystem, String<maximumLettersInSubsystemName>, numberOfSubsystemOptions> subsystemToString = {
+	static etl::map<Subsystem, String<MaximumLettersInSubsystemName>, NumberOfSubsystemOptions> subsystemToString = {
 	    {Subsystem::None, "None"},
 	    {Subsystem::OBC, "OBC"},
 	    {Subsystem::COMMS, "COMMS"},
