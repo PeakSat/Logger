@@ -1,5 +1,8 @@
 #pragma once
 
+#include "etl/String.hpp"
+#include "etl/map.h"
+
 /**
  * @defgroup LoggerDefinitions ECSS Defined Constants
  *
@@ -20,3 +23,41 @@
  * @brief The maximum size of a log message
  */
 #define LOGGER_MAX_MESSAGE_SIZE 512
+
+namespace LogSubsystem {
+	/**
+	 * The maximum number of letters in a string representation of a subsystem's name.
+	 */
+	inline constexpr uint8_t MaximumLettersInSubsystemName = 5;
+
+	/**
+	 * The amount of options in the below enum class.
+	 */
+	inline constexpr uint8_t NumberOfSubsystemOptions = 5;
+
+	/**
+	 * The subsystems that log messages originate from.
+	 */
+	enum class Subsystem : uint8_t {
+		None = 0,
+		OBC,
+		COMMS,
+		SU,
+		ADCS
+	};
+
+	/**
+	 * Map to assign enum's values to their string representations, for logging.
+	 */
+	static etl::map<Subsystem, String<MaximumLettersInSubsystemName>, NumberOfSubsystemOptions> subsystemToString = {
+	    {Subsystem::None, "None"},
+	    {Subsystem::OBC, "OBC"},
+	    {Subsystem::COMMS, "COMMS"},
+	    {Subsystem::SU, "SU"},
+	    {Subsystem::ADCS, "ADCS"}};
+
+	/**
+	 * The subsystem to be used, if no other source is defined using the stream operator.
+	 */
+	inline Subsystem currentSubsystem;
+} // namespace LogSubsystem
