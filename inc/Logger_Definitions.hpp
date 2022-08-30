@@ -57,7 +57,7 @@ namespace LogSubsystem {
 	    {Subsystem::ADCS, "ADCS"}};
 
 	/**
-	 * The subsystem to be used, if no other subsystem is defined using the stream operator.
+	 * The subsystem to be used, if no other source is defined using the stream operator.
 	 */
 	inline Subsystem currentSubsystem;
 } // namespace LogSubsystem

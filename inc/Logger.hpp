@@ -89,7 +89,7 @@ public:
 	struct LogEntry {
 		String<LOGGER_MAX_MESSAGE_SIZE> message = ""; ///< The current log message itself, starting from a blank slate
 		LogLevel level; ///< The log level of this message
-		LogSubsystem::Subsystem subsystem = LogSubsystem::currentSubsystem; ///< The subsystem the log message originates from.
+		LogSubsystem::Subsystem source = LogSubsystem::currentSubsystem; ///< The subsystem the log message originates from.
 
 		explicit LogEntry(LogLevel level); ///< Create a new LogEntry
 
@@ -127,7 +127,7 @@ public:
 		 * @return The current Logger::LogEntry where the subsystem has been assigned
 		 */
 		Logger::LogEntry& operator<<(const LogSubsystem::Subsystem subsystem) {
-			this->subsystem = subsystem;
+			this->source = subsystem;
 
 			return *this;
 		}
