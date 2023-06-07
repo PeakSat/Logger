@@ -79,13 +79,14 @@ public:
 	 */
 	enum class NoLogEntry {};
 
-	/**
+    /**
 	 * A class that defines a log message.
 	 *
 	 * Instead of using this class, prefer one of the above macros.
 	 * @see LOG
 	 * @internal
 	 */
+
 	struct LogEntry {
 		String<LOGGER_MAX_MESSAGE_SIZE> message = ""; ///< The current log message itself, starting from a blank slate
 		LogLevel level; ///< The log level of this message
@@ -121,7 +122,8 @@ public:
 		}
 
 		Logger::LogEntry& operator<<(const std::string& value);
-	};
+
+    };
 
 	/**
 	 * Returns whether a log entry of level \p level is logged, based on the compilation constants
@@ -136,6 +138,7 @@ public:
 	 * Store a new log message
 	 */
 	static void log(LogLevel level, etl::istring & message);
+
 };
 
 /**
