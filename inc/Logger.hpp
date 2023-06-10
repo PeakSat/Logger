@@ -121,6 +121,12 @@ public:
 		}
 
 		Logger::LogEntry& operator<<(const std::string& value);
+
+//        template<>
+        Logger::LogEntry& operator<<(const char* value);
+
+//        template<>
+        Logger::LogEntry& operator<<(char* value);
 	};
 
 	/**
