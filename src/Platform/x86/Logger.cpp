@@ -66,3 +66,16 @@ Logger::LogEntry& Logger::LogEntry::operator<<(const std::string & value) {
 
 	return *this;
 }
+
+
+// Reimplementation of the function for variable C strings
+Logger::LogEntry& Logger::LogEntry::operator<<(char* value) {
+    message.append(value);
+    return *this;
+}
+
+// Reimplementation of the function for C strings
+Logger::LogEntry& Logger::LogEntry::operator<<(const char* value) {
+    message.append(value);
+    return *this;
+}

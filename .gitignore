@@ -81,3 +81,8 @@ _deps
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 .idea/**/markdown-*
+
+CMakeUserPresets.json
+
+cppcheck-html-report/
+ikos-report/
