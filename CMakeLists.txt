@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 project(logger)
 
 set(CMAKE_CXX_STANDARD 17)
-
+set(NO_SYSTEM_INCLUDE ON)
 find_package(etl CONFIG REQUIRED)
 
 add_library(log_common STATIC)
