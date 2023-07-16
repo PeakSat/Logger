@@ -62,20 +62,17 @@ void Logger::log(Logger::LogLevel level, etl::istring & message) {
 // Reimplementation of the log function for C++ strings
 // This is kept in the Platform files, since we don't want to mess with std::strings in the microcontroller
 Logger::LogEntry& Logger::LogEntry::operator<<(const std::string & value) {
-	message.append(value.c_str());
+    message.append(value.c_str());
 
-	return *this;
-}
-
-
-// Reimplementation of the function for variable C strings
-Logger::LogEntry& Logger::LogEntry::operator<<(char* value) {
-    message.append(value);
     return *this;
 }
 
-// Reimplementation of the function for C strings
-Logger::LogEntry& Logger::LogEntry::operator<<(const char* value) {
+template<>
+void convertValueToString(String<LOGGER_MAX_MESSAGE_SIZE>& message, char* value) {
     message.append(value);
-    return *this;
+}
+
+template<>
+void convertValueToString(String<LOGGER_MAX_MESSAGE_SIZE>& message, const char* value)  {
+    message.append(value);
 }
