@@ -65,4 +65,4 @@ class LoggerRecipe(ConanFile):
 
 
     def requirements(self):
-        self.requires("etl/20.32.1")
+        self.requires("etl/20.37.2")
