@@ -55,6 +55,10 @@ public:
     static etl::format_spec format;
 
     /**
+     * The maximum decimal places of the number that can be logged
+     */
+    inline static constexpr uint8_t MaxPrecision = 6;
+    /**
      * Log levels supported by the logger. Each level represents a different severity of the logged Message,
      * and messages of lower severities can be filtered on top of more significant ones.
      *
@@ -236,3 +240,7 @@ void convertValueToString(String<LOGGER_MAX_MESSAGE_SIZE>& message, char* value)
 
 template<>
 void convertValueToString(String<LOGGER_MAX_MESSAGE_SIZE>& message, const char* value);
+
+template<>
+void convertValueToString(String<LOGGER_MAX_MESSAGE_SIZE>& message, float value);
+
