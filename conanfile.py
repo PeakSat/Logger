@@ -55,7 +55,7 @@ class LoggerRecipe(ConanFile):
         self.cpp_info.components["log_common"].libdirs = ["lib"]
         self.cpp_info.components["log_common"].includedirs = ["inc"]
 
-        if not self.settings.arch.startswith('arm'):
+        if not str(self.settings.arch).startswith('arm'):
             self.cpp_info.components["log_x86"].libs = ["log_x86"]
             self.cpp_info.components["log_x86"].set_property("cmake_target_name", "log_x86")
 
